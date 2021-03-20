@@ -1,0 +1,44 @@
+PROBLEM:LinkedList: 1->2->3->4->5
+        Output: 1 2 4 5
+
+        LinkedList: 2->4->6->7->5->1
+        Output: 2 4 6 5 1
+        
+        
+SOLUTION:
+
+Node* deleteMid(Node* head)
+{
+    
+    Node *slow=head;
+    Node *fast=head->next->next;
+    while((fast!=NULL) && (fast->next!=NULL)){
+        fast=fast->next->next;
+        slow=slow->next;
+    }
+    
+    slow->next=slow->next->next;
+    return head;
+}
+
+
+____________________________________________________
+
+Node* deleteMid(Node* head)
+{
+   
+    Node *slow=head;
+    Node *fast=head;
+    Node *run=head;
+    while((fast!=NULL) && (fast->next!=NULL)){
+        run=slow;
+        fast=fast->next->next;
+        slow=slow->next;
+    }
+    run->next=slow->next;
+    return head;
+}
+
+
+
+
